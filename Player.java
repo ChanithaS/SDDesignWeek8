@@ -4,26 +4,14 @@ public class Player {
     String Name;
     int age, rating;
     double stat;
+    String type;
 
-    public enum Type {
-        BATTING, BOWLING, KEEPING
-    };
-
-    private Type type;
-
-    Player() {
-    }
-
-    Player(String name, Type toype, int years, double stat, int ratting) {
+    Player(String name, String type, int years, double stat, int ratting) {
         Name = name;
-        this.type = toype;
+        this.type = type;
         age = years;
         this.stat = stat;
         rating = ratting;
-    }
-
-    public Type getType() {
-        return type;
     }
 
     public void getPlayerDetails() {
