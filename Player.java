@@ -1,4 +1,6 @@
+
 public class Player {
+<<<<<<< HEAD
     String Name;
     int age, rating;
     double stat;

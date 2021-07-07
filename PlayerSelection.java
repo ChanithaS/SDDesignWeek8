@@ -1,22 +1,44 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayerSelection {
-    private ArrayList<Player> mPlayers;
-    private Scanner mScanner = new Scanner(System.in);
-    
-    public void PrintMenu() {
-        System.out.println("Commands:");
-        System.out.println("    A   -   Add player.");
-        System.out.println("    B   -   Display two best batmans.");
-        System.out.println("    C   -   Display two best bowlers.");
-        System.out.println("    D   -   Display the best keeper.");
-        System.out.println("    V   -   View all players.");
-        System.out.println();
+    public static void Menu()
+    {
+        System.out.println("Enter A to add a player");
+        System.out.println("Enter V to view players");
+        System.out.println("Enter B to Display two best batmans");
+        System.out.println("Enter C to Display two best bowlers");
+        System.out.println("Enter D to Display the best keeper");
+
+        Scanner sc = new Scanner(System.in);
+        String value = sc.next();
+        getinput(value);
     }
 
- 
-    public void AddPlayer() {
+    public static void getinput(String value)
+    {
+        switch(value)
+        {
+            case "A":
+                addPlayer();
+                break;
+            case "V":
+                ViewPlayer();
+                break;
+            case "B":
+                bestBatsman();
+                break;
+            case "C":
+                BestBowler();
+                break;
+            case "D":
+                bestKeeper();
+                break;
+            default:
+                System.out.println("Invalid input");    
+        }
+    }
+
+    public static void addPlayer(){
         System.out.print("Enter player name: ");
         String name = mScanner.nextLine();
 
@@ -45,14 +67,12 @@ public class PlayerSelection {
 
         mPlayers.add(new Player(name, pType, years, stat, rating));
     }
-    
-    public void ShowAllPlayers() {
+    public static void ViewPlayer(){
         for (Player iterator : mPlayers) {
             System.out.println(iterator);
         }
     }
-
-    public void BestBatsmans() {
+    public static void bestBatsman(){
         Player[] players = { new Player(), new Player() };
 
         int counter = 1;
@@ -66,8 +86,7 @@ public class PlayerSelection {
             }
         }
     }
-    
-    public void BestBowlers() {
+    public static void BestBowler(){
         Player[] players = { new Player(), new Player() };
 
         int counter = 1;
@@ -81,8 +100,7 @@ public class PlayerSelection {
             }
         }
     }
-
-    public void BestKeeper() {
+    public static void bestKeeper(){
         Player[] players = { new Player(), new Player() };
 
         int counter = 1;
